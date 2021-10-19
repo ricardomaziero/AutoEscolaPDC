@@ -1,0 +1,54 @@
+﻿@page
+@model AutoEscolaPDC.Pages.Treinamentos.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Treinamentos</h1>
+
+<p>
+    <a asp-page="Create">Criar Novo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Treinamento[0].DtInicio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Treinamento[0].Funcionario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Treinamento[0].Aluno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Treinamento[0].Categoria)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Treinamento) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DtInicio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Funcionario.ANome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Aluno.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Categoria.Nome)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Editar</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Detalhes</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Deletar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

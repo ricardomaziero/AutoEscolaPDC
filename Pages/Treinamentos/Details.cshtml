@@ -1,0 +1,43 @@
+﻿@page
+@model AutoEscolaPDC.Pages.Treinamentos.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detalhes</h1>
+
+<div>
+    <h4>Treinamento</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Treinamento.DtInicio)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Treinamento.DtInicio)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Treinamento.Funcionario)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Treinamento.Funcionario.ANome)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Treinamento.Aluno)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Treinamento.Aluno.Nome)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Treinamento.Categoria)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Treinamento.Categoria.Nome)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Treinamento.ID">Editar</a> |
+    <a asp-page="./Index">Voltar a lista</a>
+</div>

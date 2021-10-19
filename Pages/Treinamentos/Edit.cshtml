@@ -1,0 +1,65 @@
+﻿@page
+@model AutoEscolaPDC.Pages.Treinamentos.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Editar</h1>
+
+<h4>Treinamento</h4>
+<hr />
+
+
+<form method="post">
+    <div class="row">
+
+
+        <div class="col-md-4">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Treinamento.DtInicio" class="control-label"></label>
+                <input asp-for="Treinamento.DtInicio" class="form-control" />
+                <span asp-validation-for="Treinamento.DtInicio" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Treinamento.FuncionarioID" class="control-label"></label>
+                <select asp-for="Treinamento.FuncionarioID" class="form-control" asp-items="ViewBag.FuncionarioID"></select>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Treinamento.AlunoID" class="control-label"></label>
+                <select asp-for="Treinamento.AlunoID" class="form-control" asp-items="ViewBag.AlunoID"></select>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Treinamento.CategoriaID" class="control-label"></label>
+                <select asp-for="Treinamento.CategoriaID" class="form-control" asp-items="ViewBag.CategoriaID"></select>
+            </div>
+        </div>
+
+    </div>
+    <div class="form-group">
+        <br />
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </div>
+
+    <div>
+        <a asp-page="Index">Voltar a lista</a>
+    </div>
+
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

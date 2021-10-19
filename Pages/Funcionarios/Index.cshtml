@@ -1,0 +1,66 @@
+﻿@page
+@model AutoEscolaPDC.Pages.Funcionarios.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Funcionários</h1>
+
+<p>
+    <a asp-page="Create">Criar novo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Funcionario[0].ANome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Funcionario[0].Login)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Funcionario[0].Password)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Funcionario[0].Idade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Funcionario[0].Cargo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Funcionario[0].DtAdmissao)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Funcionario) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ANome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Login)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Idade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cargo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DtAdmissao)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Editar</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Detalhes</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Deletar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
